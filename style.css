@@ -4,6 +4,9 @@ body {
   font-family: 'PT Mono', monospace;
 }
 
+.steps {
+  display: flex;
+}
 body {
   background-color: #44444C;
   color: #fff;

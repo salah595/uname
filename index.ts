@@ -5,13 +5,18 @@ const appDiv: HTMLElement = document.getElementById('app');
 const prevButton : HTMLButtonElement = document.getElementById("prev");
 const nextButton : HTMLButtonElement= document.getElementById("next");
 const levelNumber : HTMLParagraphElement = document.getElementById("number");
-const 
+const buttonsContainer: HTMLDivElement = document.querySelector(".buttons-container");
+const stepsCountP: HTMLParagraphElement = document.querySelector(".steps-count");
+const stepsNumberP : HTMLParagraphElement = document.querySelector(".steps-number");
+
 // initialize game
 // fetch the level and the scores from local storage
 let level = 1;
-levelNumber.innerText = '' + level;
+let steps = [];
+let stepsCount = 0;
+let stepsNumber = 0;
+ 
 const colorArr:string[] = ['red', 'blue', 'black'];
-const steps = []; 
 
 function createButtonEl (color: string, id: string) : HTMLLabelElement {
   const button = document.createElement("label");
@@ -22,11 +27,31 @@ function createButtonEl (color: string, id: string) : HTMLLabelElement {
   return button;
 }
 
+function initializeGame (): void {
+  // init level
+  levelNumber.innerText = '' + level;
 
-
-function gameLoop() {
+  // init buttons
+  const gameButtons: HTMLLabelElement[] = [];
+  for(let i = 0; i < level; i++) {
+    gameButtons.push(createButtonEl(colorArr[i], '' + i));
+  }
+  buttonsContainer.append(...gameButtons);
+}
+function toggleButtonsDisablation (state: boolean): void {
 
 }
+
+function animateSteps ():void {
+
+}
+
+function game() {
+  initializeGame();
+
+}
+
+game();
 // each level has a button
 // append to the dom
 // create a step
